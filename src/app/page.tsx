@@ -1,8 +1,12 @@
 
+"use client"
 
-export default function Home() {
-  return (
-   <h1>haha hehe huhu</h1>
-  );
+import { useState } from "react"
+
+function Contact(){
+    return (
+        <h1>haha hehe huhu</h1>
+    )
 }
 
+export default Contact
