@@ -12,8 +12,8 @@ const studentSlice = createSlice({
     reducers : {
         setData(state:IInitialStudentData, action:PayloadAction<string|number>){
             state.data = action.payload // {
-//     name : "manish", 
-//     address : "itahari"
+//     name : "sachin", 
+//     address : "butwal"
 // }
         }, 
     }
@@ -21,8 +21,8 @@ const studentSlice = createSlice({
 // reducerName -- actionName
 const {setData} = studentSlice.actions
 // dispatch(setData({
-//     name : "manish", 
-//     address : "itahar", 
+//     name : "sachin", 
+//     address : "butwal", 
 //     age : 23 
 // })) 
 export {setData}
@@ -31,7 +31,7 @@ export default studentSlice.reducer
 function setName(){
 
 }
-setName("manish")
+setName("sachin")
 
 // 
 
