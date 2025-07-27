@@ -1,21 +1,13 @@
 import { Status } from "@/lib/types/type";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { AppDispatch } from "../../store";
-import API from "@/lib/http/Api";
-import { IInstituteCourseInitialData } from "./institue-course-type";
 
+import { IInstituteCourseInitialData } from "./institue-course-type";
+import API from "@/lib/http/Api";
 
 const initialState:IInstituteCourseInitialData  = {
     status : Status.LOADING, 
-    courses : [{
-        courseName : "nodejs", 
-        coursePrice : "999", 
-        id : "1"
-    }, {
-        courseName : "reactjs", 
-        coursePrice : "999", 
-        id : "2"
-    }]
+    courses : []
 }
 
 const instituteCourseSlice = createSlice({
@@ -30,14 +22,18 @@ const instituteCourseSlice = createSlice({
         }, 
         setDeleteCourse(state,action:PayloadAction<string>){
             // id -> 1 
-           const index =  state.courses.findIndex(course=>course.id = action.payload) //1
-           state.courses.splice(index,1)
+           const index =  state.courses.findIndex(course=>course.id == action.payload) //1
+           if(index !== -1){
+               state.courses.splice(index,1)
+           }
         }, 
         setEditCourse(state,action:PayloadAction<any>){
             const id = action.payload.id 
             const data = action.payload.data
-           const index =  state.courses.findIndex(course=>course.id =id) //0
-           state.courses[1] = data
+           const index =  state.courses.findIndex(course=>course.id ==id) //0
+           if(index !== -1){
+               state.courses[1] = data
+           }
 
         }
     }
